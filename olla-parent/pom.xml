@@ -2,10 +2,25 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>cn.kanejin.looa</groupId>
+  <groupId>cn.kanejin.olla</groupId>
   <artifactId>olla-parent</artifactId>
   <version>1.0.0</version>
   <packaging>pom</packaging>
+
+  <inceptionYear>2016</inceptionYear>
+
+  <developers>
+    <developer>
+      <name>Kane Jin</name>
+      <url>https://github.com/KaneJinCN</url>
+    </developer>
+  </developers>
+
+  <modules>
+    <module>../olla-core</module>
+    <module>../olla-support</module>
+    <module>../olla-server-lite</module>
+  </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
