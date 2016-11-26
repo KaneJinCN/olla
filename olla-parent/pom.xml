@@ -1,28 +1,42 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>cn.kanejin.olla</groupId>
-  <artifactId>olla-parent</artifactId>
-  <version>1.0.0</version>
-  <packaging>pom</packaging>
+    <groupId>cn.kanejin.olla</groupId>
+    <artifactId>olla-parent</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
 
-  <inceptionYear>2016</inceptionYear>
+    <inceptionYear>2016</inceptionYear>
 
-  <developers>
-    <developer>
-      <name>Kane Jin</name>
-      <url>https://github.com/KaneJinCN</url>
-    </developer>
-  </developers>
+    <developers>
+        <developer>
+            <name>Kane Jin</name>
+            <url>https://github.com/KaneJinCN</url>
+        </developer>
+    </developers>
 
-  <modules>
-    <module>../olla-core</module>
-    <module>../olla-support</module>
-    <module>../olla-server-lite</module>
-  </modules>
+    <modules>
+        <module>../olla-core</module>
+        <module>../olla-support</module>
+        <module>../olla-server-lite</module>
+    </modules>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
