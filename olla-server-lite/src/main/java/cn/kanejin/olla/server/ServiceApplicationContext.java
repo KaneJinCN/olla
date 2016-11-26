@@ -10,7 +10,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * @version $Id: ServiceApplicationContext.java 154 2016-04-20 15:25:06Z Kane $
  * @author Kane Jin
  */
 public class ServiceApplicationContext {

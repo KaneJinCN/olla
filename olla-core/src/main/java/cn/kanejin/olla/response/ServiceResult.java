@@ -3,7 +3,6 @@ package cn.kanejin.olla.response;
 import java.io.Serializable;
 
 /**
- * @version $Id: ServiceResult.java 52 2015-04-04 06:45:23Z Kane $
  * @author Kane Jin
  */
 public class ServiceResult<T> implements Serializable {

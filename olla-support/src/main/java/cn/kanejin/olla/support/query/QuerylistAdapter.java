@@ -7,7 +7,6 @@ import java.util.List;
 
 
 /**
- * @version $Id: QuerylistAdapter.java 93 2015-08-18 07:06:36Z Kane $
  * @author Kane Jin
  */
 public interface QuerylistAdapter {

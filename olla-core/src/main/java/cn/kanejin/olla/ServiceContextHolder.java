@@ -2,7 +2,6 @@ package cn.kanejin.olla;
 
 
 /**
- * @version $Id: ServiceContextHolder.java 52 2015-04-04 06:45:23Z Kane $
  * @author Kane Jin
  */
 public class ServiceContextHolder {

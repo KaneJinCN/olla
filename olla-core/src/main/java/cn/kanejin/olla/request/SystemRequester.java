@@ -1,7 +1,6 @@
 package cn.kanejin.olla.request;
 
 /**
- * @version $Id: SystemRequester.java 52 2015-04-04 06:45:23Z Kane $
  * @author Kane Jin
  */
 public class SystemRequester implements Requester {

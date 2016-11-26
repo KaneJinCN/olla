@@ -1,7 +1,6 @@
 package cn.kanejin.olla.response;
 
 /**
- * @version $Id: ServiceResultStatus.java 154 2016-04-20 15:25:06Z Kane $
  * @author Kane Jin
  */
 public enum ServiceResultStatus {

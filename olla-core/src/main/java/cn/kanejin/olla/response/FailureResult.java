@@ -1,7 +1,6 @@
 package cn.kanejin.olla.response;
 
 /**
- * @version $Id: FailureResult.java 52 2015-04-04 06:45:23Z Kane $
  * @author Kane Jin
  */
 public class FailureResult<T> extends ServiceResult<T> {

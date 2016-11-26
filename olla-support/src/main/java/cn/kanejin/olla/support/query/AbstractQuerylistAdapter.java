@@ -13,7 +13,6 @@ import java.util.Map;
 
 /**
  * @author Kane Jin
- * @version $Id: AbstractQuerylistAdapter.java 100 2015-09-16 15:45:44Z Kane $
  */
 public abstract class AbstractQuerylistAdapter implements QuerylistAdapter {
     private static Logger log = LoggerFactory.getLogger(AbstractQuerylistAdapter.class);

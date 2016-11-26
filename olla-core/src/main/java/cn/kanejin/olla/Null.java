@@ -10,12 +10,11 @@ import java.io.Serializable;
  * 例如：
  * <pre>
  * Result&lt;Null&gt; removeMember(Long entId, Long userId);
- * 表示调用删除成员的服务后，返回值{@link Result Result}的data里不带有任何具体的对象。
+ * 表示调用删除成员的服务后，返回值{@link ServiceResult ServiceResult}的data里不带有任何具体的对象。
  * </pre>
  * 
- * @version $Id: Null.java 52 2015-04-04 06:45:23Z Kane $
  * @author Kane Jin
  * @see Service
- * @see Result
+ * @see ServiceResult
  */
 public interface Null extends Serializable {}

@@ -8,7 +8,6 @@ import java.lang.annotation.Target;
 /**
  * 标明使用校验的服务类
  * 
- * @version $Id: ServiceGuard.java 94 2015-08-18 07:10:02Z Kane $
  * @author Kane Jin
  */
 @Retention(RetentionPolicy.RUNTIME)

@@ -11,7 +11,6 @@ import java.util.Map;
  * <p>
  * <em>如果排序信息不指定的话，则按默认的排序进行查询。</em>
  * 
- * @version $Id: QueryRequest.java 76 2015-07-05 08:54:46Z Kane $
  * @author Kane Jin
  */
 public class QueryRequest implements Serializable {

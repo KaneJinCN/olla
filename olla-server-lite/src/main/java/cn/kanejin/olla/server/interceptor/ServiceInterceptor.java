@@ -28,7 +28,6 @@ import java.lang.reflect.Method;
 
 /**
  * @author Kane Jin
- * @version $Id: ServiceInterceptor.java 165 2016-07-31 03:17:02Z Kane $
  */
 @Component("serviceInterceptor")
 @Aspect

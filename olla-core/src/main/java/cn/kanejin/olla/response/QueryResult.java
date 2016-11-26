@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @version $Id: QueryResult.java 52 2015-04-04 06:45:23Z Kane $
  * @author Kane Jin
  */
 public class QueryResult<T> implements Serializable {

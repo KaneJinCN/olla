@@ -4,7 +4,6 @@ package cn.kanejin.olla.request;
 import cn.kanejin.olla.ServiceContext;
 
 /**
- * @version $Id: PermissionUtil.java 52 2015-04-04 06:45:23Z Kane $
  * @author Kane Jin
  */
 public class PermissionUtil {
