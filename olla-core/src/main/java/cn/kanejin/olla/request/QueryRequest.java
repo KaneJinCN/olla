@@ -13,13 +13,12 @@ import java.util.Map;
  * 
  * @author Kane Jin
  */
-public class QueryRequest implements Serializable {
+public abstract class QueryRequest implements Serializable {
 	private static final long serialVersionUID = 3684987356242401711L;
 
 	private Map<String, Object> params;
 	private List<OrderBy> orderby;
 	
-	@Deprecated
 	public QueryRequest() {
 		this.params = new HashMap<String, Object>();
 	}
@@ -27,7 +26,6 @@ public class QueryRequest implements Serializable {
 	/**
 	 * @param params 查询条件参数
 	 */
-	@Deprecated
 	public QueryRequest(Map<String, Object> params) {
 		if (params == null)
 			throw new IllegalArgumentException("Params must not be null");
@@ -52,37 +50,8 @@ public class QueryRequest implements Serializable {
 	 * @param key 参数键
 	 * @param value 参数值
 	 */
-	@Deprecated
-	public void setParameter(String key, Object value) {
+	protected void setParameter(String key, Object value) {
 		params.put(key, value);
-	}
-	
-	
-	/**
-	 * 根据键获取查询条件里的参数值（未转换类型）
-	 * <p>
-	 * 该方法获取的值未转换类型，只是Object的对象。
-	 * 如果需要转换类型，请调用{@link #getParameter(String, Class)}。
-	 * 
-	 * @param key 参数键
-	 * @return 参数值
-	 */
-	@Deprecated
-	public Object getParameter(String key) {
-		return params.get(key);
-	}
-	
-	/**
-	 * 根据键获取查询条件里的参数值
-	 * 
-	 * @param key 参数键
-	 * @param clazz 参数的类
-	 * @return 参数值
-	 */
-	@SuppressWarnings("unchecked")
-	@Deprecated
-	public <T> T getParameter(String key, Class<T> clazz) {
-		return (T)params.get(key);
 	}
 	
 	/**
@@ -114,8 +83,7 @@ public class QueryRequest implements Serializable {
 	 * 
 	 * @param name 排序字段名
 	 */
-	@Deprecated
-	public void addOrderby(String name) {
+	protected void addOrderby(String name) {
 		this.addOrderby(name, true);
 	}
 	
@@ -125,8 +93,7 @@ public class QueryRequest implements Serializable {
 	 * @param name 排序字段名
 	 * @param isAsc 是否升序
 	 */
-	@Deprecated
-	public void addOrderby(String name, boolean isAsc) {
+	protected void addOrderby(String name, boolean isAsc) {
 		if (orderby == null)
 			orderby = new ArrayList<OrderBy>();
 		
