@@ -1,5 +1,7 @@
 package cn.kanejin.olla;
 
+import cn.kanejin.olla.response.ServiceResult;
+
 import java.io.Serializable;
 
 /**
