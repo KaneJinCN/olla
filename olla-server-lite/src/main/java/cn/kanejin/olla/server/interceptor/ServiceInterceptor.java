@@ -62,7 +62,7 @@ public class ServiceInterceptor {
      * @param pjp
      * @return
      */
-    @Around("execution(* *..*ServiceImpl.*(..))")
+    @Around("execution(cn.kanejin.olla.response.ServiceResult *..*ServiceImpl.*(..))")
     public Object aroundService(ProceedingJoinPoint pjp) throws Throwable {
 
         boolean isCachedService = isCachedMethod(pjp);
@@ -162,7 +162,7 @@ public class ServiceInterceptor {
         return retVal;
     }
 
-    @After("execution(* *..*ServiceImpl.*(..))")
+    @After("execution(cn.kanejin.olla.response.ServiceResult *..*ServiceImpl.*(..))")
     public void cleanContext() throws Throwable {
         // 清除LocalThread里的service context
         log.debug("Cleaning Service Context");
