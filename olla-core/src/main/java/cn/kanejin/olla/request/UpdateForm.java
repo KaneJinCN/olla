@@ -11,12 +11,12 @@ public abstract class UpdateForm implements Serializable {
 
     private Long id;
 
-    public Long getId() {
-        return id;
+    public UpdateForm(Long id) {
+        this.id = id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public Long getId() {
+        return id;
     }
 
     private List<String> updateFileds = new ArrayList<String>();
