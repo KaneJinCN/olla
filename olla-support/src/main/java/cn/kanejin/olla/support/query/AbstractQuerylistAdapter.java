@@ -23,9 +23,7 @@ public abstract class AbstractQuerylistAdapter implements QuerylistAdapter {
 
     private int maxNumPerPage = 100;
 
-    private String defaultSortColumn;
-
-    private String defaultSortDirection = "asc";
+    private String defaultSort;
 
     @Override
     public <E> QueryResult<E> queryList(QueryRequest info, Integer page,
@@ -83,31 +81,26 @@ public abstract class AbstractQuerylistAdapter implements QuerylistAdapter {
     private <E> List<E> query(QueryRequest info, Integer page, Integer limit) {
         log.debug("Start to query top list[{}]", getSqlmap());
 
-        String orderby = info.getOrderby();
-        if (orderby == null || orderby.isEmpty()) {
-            orderby = getDefaultSortColumn() + " " + getDefaultSortDirection();
-
-            log.debug(
-                    "The default sort column '{}' with direction '{}' was  set.",
-                    getDefaultSortColumn(), getDefaultSortDirection());
-        } else {
-            orderby = info.getOrderby();
+        String orderBy = info.getOrderBy();
+        if (orderBy == null || orderBy.isEmpty()) {
+            orderBy = getDefaultSort();
+            log.debug("The default sort '{}' was  set.", orderBy);
         }
 
         return selectList(
                 getSqlmap(),
-                mixOrderAndPagingParams(info.getParameters(), orderby, page, limit));
+                mixOrderAndPagingParams(info.getParameters(), orderBy, page, limit));
     }
 
     private Map<String, Object> mixOrderAndPagingParams(
-            Map<String, Object> params, String orderby, int page, int limit) {
+            Map<String, Object> params, String orderBy, int page, int limit) {
 
         Map<String, Object> map = new HashMap<String, Object>();
 
         if (params != null)
             map.putAll(params);
 
-        map.put("orderby", orderby);
+        map.put("order_by", orderBy);
 
         map.put("start_num", (page - 1) * limit);
         map.put("limit_num", limit);
@@ -144,19 +137,11 @@ public abstract class AbstractQuerylistAdapter implements QuerylistAdapter {
         this.maxNumPerPage = maxNumPerPage;
     }
 
-    public String getDefaultSortColumn() {
-        return defaultSortColumn;
+    public String getDefaultSort() {
+        return defaultSort;
     }
 
-    public void setDefaultSortColumn(String defaultSortColumn) {
-        this.defaultSortColumn = defaultSortColumn;
-    }
-
-    public String getDefaultSortDirection() {
-        return defaultSortDirection;
-    }
-
-    public void setDefaultSortDirection(String defaultSortDirection) {
-        this.defaultSortDirection = defaultSortDirection;
+    public void setDefaultSort(String defaultSort) {
+        this.defaultSort = defaultSort;
     }
 }

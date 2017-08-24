@@ -25,38 +25,50 @@ public class QueryResult<T> implements Serializable {
 		return paging;
 	}
 
-	public void setPaging(int page, int limit, int total) {
-		this.paging = new Paging(page, limit, total);
+	public void setPaging(int page, int pageSize, int totalCount) {
+		this.paging = new Paging(page, pageSize, totalCount);
 	}
 
 	public static class Paging {
 		private int page;
-		private int totalPage;
-		private int limit;
-		private int total;
+		private int pageCount;
+		private int pageSize;
+		private int totalCount;
 		
-		public Paging(int page, int limit, int total) {
-			this.limit = limit;
-			this.total = total;
-			this.totalPage = ((total - 1) / limit) + 1;
+		public Paging(int page, int pageSize, int totalCount) {
+			this.pageSize = pageSize;
+			this.totalCount = totalCount;
+			this.pageCount = ((totalCount - 1) / pageSize) + 1;
 			// NOTE: total page is the max page number.
-			this.page = Math.min(page, this.totalPage);
+			this.page = Math.min(page, this.pageCount);
 		}
-		
+
+		/**
+		 * @return 第几页
+		 */
 		public int getPage() {
 			return page;
 		}
 
-		public int getTotalPage() {
-			return totalPage;
+		/**
+		 * @return 总页数
+		 */
+		public int getPageCount() {
+			return pageCount;
 		}
 
-		public int getLimit() {
-			return limit;
+		/**
+		 * @return 每页条数
+		 */
+		public int getPageSize() {
+			return pageSize;
 		}
 
-		public int getTotal() {
-			return total;
+		/**
+		 * @return 总条数
+		 */
+		public int getTotalCount() {
+			return totalCount;
 		}
 	}
 }

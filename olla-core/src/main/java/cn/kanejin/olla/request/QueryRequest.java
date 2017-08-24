@@ -17,7 +17,7 @@ public abstract class QueryRequest implements Serializable {
 	private static final long serialVersionUID = 3684987356242401711L;
 
 	private Map<String, Object> params;
-	private List<OrderBy> orderby;
+	private List<OrderBy> orderBy;
 	
 	public QueryRequest() {
 		this.params = new HashMap<String, Object>();
@@ -64,12 +64,12 @@ public abstract class QueryRequest implements Serializable {
 	 * 
 	 * @return 排序的字符串
 	 */
-	public String getOrderby() {
-		if (orderby == null || orderby.isEmpty())
+	public String getOrderBy() {
+		if (orderBy == null || orderBy.isEmpty())
 			return null;
 
 		StringBuilder result = new StringBuilder();
-		for (OrderBy o : orderby) {
+		for (OrderBy o : orderBy) {
 			if (result.length() != 0)
 				result.append(", ");
 			result.append(o.toString());
@@ -83,8 +83,8 @@ public abstract class QueryRequest implements Serializable {
 	 * 
 	 * @param name 排序字段名
 	 */
-	protected void addOrderby(String name) {
-		this.addOrderby(name, true);
+	protected void addOrderBy(String name) {
+		this.addOrderBy(name, true);
 	}
 	
 	/**
@@ -93,16 +93,16 @@ public abstract class QueryRequest implements Serializable {
 	 * @param name 排序字段名
 	 * @param isAsc 是否升序
 	 */
-	protected void addOrderby(String name, boolean isAsc) {
-		if (orderby == null)
-			orderby = new ArrayList<OrderBy>();
-		
-		orderby.add(new OrderBy(name, isAsc));
+	protected void addOrderBy(String name, boolean isAsc) {
+		if (orderBy == null)
+			orderBy = new ArrayList<OrderBy>();
+
+		orderBy.add(new OrderBy(name, isAsc));
 	}
 	
 	@Override
 	public String toString() {
-		return "{params=" + params + ", orderby=" + getOrderby() + "}";
+		return "{params=" + params + ", orderBy=" + getOrderBy() + "}";
 	}
 
 	private static class OrderBy {
