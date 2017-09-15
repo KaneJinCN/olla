@@ -1,10 +1,7 @@
 package cn.kanejin.olla.request;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 查询信息（包含查询条件参数信息和排序信息）
@@ -14,6 +11,12 @@ import java.util.Map;
  * @author Kane Jin
  */
 public abstract class QueryRequest implements Serializable {
+
+	public enum Direction {
+		ASC,
+		DESC
+	}
+
 	private static final long serialVersionUID = 3684987356242401711L;
 
 	private Map<String, Object> params;
@@ -81,42 +84,56 @@ public abstract class QueryRequest implements Serializable {
 	/**
 	 * 添加一个排序字段（升序）
 	 * 
-	 * @param name 排序字段名
+	 * @param column 排序字段
 	 */
-	protected void addOrderBy(String name) {
-		this.addOrderBy(name, true);
+	protected void addOrderBy(String column) {
+		this.addOrderBy(column, Direction.ASC);
 	}
 	
 	/**
 	 * 添加一个排序字段（需指定升降序）
-	 * 
-	 * @param name 排序字段名
+	 *
+	 *
+	 * @deprecated 请使用addOrderBy(String, Direction)
+	 * @param column 排序字段
 	 * @param isAsc 是否升序
 	 */
-	protected void addOrderBy(String name, boolean isAsc) {
+	@Deprecated
+	protected void addOrderBy(String column, boolean isAsc) {
+		addOrderBy(column, isAsc ? Direction.ASC : Direction.DESC);
+	}
+
+	/**
+	 * 添加一个排序字段（需指定升降序）
+	 *
+	 *
+	 * @param column 排序字段
+	 * @param direction 排序方向
+	 */
+	protected void addOrderBy(String column, Direction direction) {
 		if (orderBy == null)
 			orderBy = new ArrayList<OrderBy>();
 
-		orderBy.add(new OrderBy(name, isAsc));
+		orderBy.add(new OrderBy(column, direction));
 	}
-	
+
 	@Override
 	public String toString() {
 		return "{params=" + params + ", orderBy=" + getOrderBy() + "}";
 	}
 
 	private static class OrderBy {
-		private String name;
-		private boolean isAsc;
+		private String column;
+		private Direction direction;
 		
-		public OrderBy(String name, boolean isAsc) {
-			this.name = name;
-			this.isAsc = isAsc;
+		public OrderBy(String column, Direction direction) {
+			this.column = column;
+			this.direction = direction;
 		}
 
 		@Override
 		public String toString() {
-			return name + (isAsc ? " asc" : " desc");
+			return column + " " + direction;
 		}
 	}
 }

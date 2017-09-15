@@ -4,12 +4,12 @@
     <groupId>cn.kanejin.olla</groupId>
     <artifactId>olla-sample</artifactId>
     <packaging>war</packaging>
-    <version>1.0.1</version>
+    <version>1.0.2-SNAPSHOT</version>
     <name>olla-sample Maven Webapp</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>3.1.2.RELEASE</spring.version>
+        <spring.version>4.3.3.RELEASE</spring.version>
     </properties>
 
     <dependencies>
